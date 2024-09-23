@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { HeaderContainer, Text } from "./styles";
 
 import Logo from "../Logo/LogoEfood.jsx";
+import FraseHome from "../FraseHome/index.jsx";
 
 const Header = () => {
   const location = useLocation();
@@ -12,6 +13,7 @@ const Header = () => {
       {isHome ? (
         <Text center>
           <Logo />
+          <FraseHome />
         </Text>
       ) : (
         <>

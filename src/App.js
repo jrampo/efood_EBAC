@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Rotas from "./routes";
 
 import styled from "styled-components";
-import GlobalStyles from "./GlobalStyles";
+import GlobalCss from "./GlobalStyles";
 import Header from "./components/Header";
 
 const Container = styled.div`
@@ -13,7 +13,7 @@ const Container = styled.div`
 function App() {
   return (
     <Router>
-      <GlobalStyles />
+      <GlobalCss />
       <Header />
       <Container>
         <Rotas />

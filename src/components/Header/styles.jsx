@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
   height: 384px;
   display: flex;
-  justify-content: ${(props) => (props.isHome ? "center" : "space-between")};
+  justify-content: center;
   align-items: center;
   background-color: #282c34;
   color: white;
@@ -12,5 +12,6 @@ export const HeaderContainer = styled.header`
 
 export const Text = styled.div`
   flex: 1;
-  text-align: ${(props) => (props.center ? "center" : "left")};
+  text-align: center;
+  font-weight: bold;
 `;
