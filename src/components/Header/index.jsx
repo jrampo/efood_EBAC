@@ -1,7 +1,13 @@
 import { useLocation } from "react-router-dom";
-import { HeaderContainer, Text } from "./styles";
+import {
+  HeaderContainer,
+  Text,
+  DoodlesContainer,
+  LogoContainer,
+} from "./styles";
 
-import Logo from "../Logo/LogoEfood.jsx";
+import Logo from "../SVGs/LogoEfood.jsx";
+import BackgroundDoodles from "../SVGs/BackgroundDoodles.jsx";
 import FraseHome from "../FraseHome/index.jsx";
 
 const Header = () => {
@@ -10,9 +16,14 @@ const Header = () => {
 
   return (
     <HeaderContainer isHome={isHome}>
+      <DoodlesContainer>
+        <BackgroundDoodles />
+      </DoodlesContainer>
       {isHome ? (
         <Text center>
-          <Logo />
+          <LogoContainer>
+            <Logo />
+          </LogoContainer>
           <FraseHome />
         </Text>
       ) : (
