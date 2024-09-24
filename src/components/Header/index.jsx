@@ -7,8 +7,9 @@ import {
   PerfilHeaderContainer,
 } from "./styles";
 
-import Logo from "../SVGs/LogoEfood.jsx";
-import BackgroundDoodles from "../SVGs/BackgroundDoodles.jsx";
+import Logo from "../../assets/SVGs/LogoEfood.jsx";
+import BackgroundDoodles from "../../assets/SVGs/BackgroundDoodles.jsx";
+
 import FraseHome from "../FraseHome/index.jsx";
 
 const Header = () => {

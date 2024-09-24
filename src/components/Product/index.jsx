@@ -1,11 +1,37 @@
 import React from "react";
-import { ProductContainer, Image, TextContainer } from "./styles";
+import {
+  ProductContainer,
+  Image,
+  TitleContainer,
+  TextContainer,
+  ProductButton,
+  ContentContainer,
+  StarRate,
+  TitleStar,
+  Rate,
+  Badge,
+  BadgeDestaque,
+} from "./styles";
 
-const Product = ({ name, image }) => {
+import Estrela from "../../assets/SVGs/Estrela";
+
+const Product = ({ name, image, description, rate, tipoComida, destaque }) => {
   return (
     <ProductContainer>
       <Image src={image} alt={name} />
-      <TextContainer>{name}</TextContainer>
+      <ContentContainer>
+        <TitleStar>
+          <TitleContainer>{name}</TitleContainer>
+          <StarRate>
+            <Rate>{rate}</Rate>
+            <Estrela />
+          </StarRate>
+        </TitleStar>
+        <TextContainer>{description}</TextContainer>
+        <Badge>{tipoComida}</Badge>
+        {destaque && <BadgeDestaque>Destaque da semana</BadgeDestaque>}
+        <ProductButton>Saiba mais</ProductButton>
+      </ContentContainer>
     </ProductContainer>
   );
 };
