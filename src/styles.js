@@ -10,15 +10,12 @@ export const GlobalCss = createGlobalStyle`
   font-family: Roboto, sans-serif;
   list-style: none;
 }
-
-.container {
-  max-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
-}
 `;
 
 export const ColorBody = styled.div`
-  background-color: #fffcf4;
-  height: 240px;
+  .container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+  }
 `;

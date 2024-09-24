@@ -10,9 +10,9 @@ function App() {
     <Router>
       <GlobalCss />
       <Header />
-      <div className="container">
+      <ColorBody>
         <Rotas />
-      </div>
+      </ColorBody>
     </Router>
   );
 }
