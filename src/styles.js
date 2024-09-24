@@ -20,4 +20,5 @@ export const GlobalCss = createGlobalStyle`
 
 export const ColorBody = styled.div`
   background-color: #fffcf4;
+  height: 240px;
 `;

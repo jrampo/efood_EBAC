@@ -2,10 +2,11 @@ import React from "react";
 
 const BackgroundDoodles = () => (
   <svg
-    width="1366"
-    height="360"
+    width="100%"
+    height="100%"
     viewBox="0 0 1366 360"
     fill="none"
+    preserveAspectRatio="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path d="M0 0H1366V360H0V0Z" fill="#FFEBD9" />

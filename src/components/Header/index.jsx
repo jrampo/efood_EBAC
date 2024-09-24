@@ -4,6 +4,7 @@ import {
   Text,
   DoodlesContainer,
   LogoContainer,
+  PerfilHeaderContainer,
 } from "./styles";
 
 import Logo from "../SVGs/LogoEfood.jsx";
@@ -16,25 +17,27 @@ const Header = () => {
 
   return (
     <HeaderContainer isHome={isHome}>
-      <DoodlesContainer>
-        <BackgroundDoodles />
-      </DoodlesContainer>
-      {isHome ? (
-        <Text center>
-          <LogoContainer>
-            <Logo />
-          </LogoContainer>
-          <FraseHome />
-        </Text>
-      ) : (
-        <>
-          <Text>Restaurantes</Text>
-          <Text>
-            <Logo />
+      <div className="container">
+        <DoodlesContainer>
+          <BackgroundDoodles />
+        </DoodlesContainer>
+        {isHome ? (
+          <Text center>
+            <LogoContainer>
+              <Logo />
+            </LogoContainer>
+            <FraseHome />
           </Text>
-          <Text>0 produto(s) no carrinho</Text>
-        </>
-      )}
+        ) : (
+          <PerfilHeaderContainer>
+            <Text>Restaurantes</Text>
+            <Text>
+              <Logo />
+            </Text>
+            <Text>0 produto(s) no carrinho</Text>
+          </PerfilHeaderContainer>
+        )}
+      </div>
     </HeaderContainer>
   );
 };
