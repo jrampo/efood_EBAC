@@ -40,4 +40,5 @@ export const PerfilHeaderContainer = styled.div`
   font-size: 18px;
   line-height: 21.09px;
   color: #e66767;
+  margin-left: 70px;
 `;

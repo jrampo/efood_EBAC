@@ -1,13 +1,18 @@
-import React from "react";
+import Banner from "../../components/PerfilComponents/Banner";
+
+import ProductsList from "../../components/PerfilComponents/ProductsList";
 
 import Footer from "../../components/Footer";
 
 const Perfil = () => {
   return (
-    <h1>
-      Perfil Page
+    <>
+      <Banner />
+      <div className="container">
+        <ProductsList />
+      </div>
       <Footer />
-    </h1>
+    </>
   );
 };
 

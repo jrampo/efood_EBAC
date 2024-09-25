@@ -10,7 +10,7 @@ import {
 import Logo from "../../assets/SVGs/LogoEfood.jsx";
 import BackgroundDoodles from "../../assets/SVGs/BackgroundDoodles.jsx";
 
-import FraseHome from "../FraseHome/index.jsx";
+import FraseHome from "../HomeComponents/FraseHome";
 
 const Header = () => {
   const location = useLocation();

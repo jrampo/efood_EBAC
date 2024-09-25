@@ -13,7 +13,7 @@ import {
   BadgeDestaque,
 } from "./styles";
 
-import Estrela from "../../assets/SVGs/Estrela";
+import Estrela from "../../../assets/SVGs/Estrela";
 
 const Product = ({ name, image, description, rate, tipoComida, destaque }) => {
   return (

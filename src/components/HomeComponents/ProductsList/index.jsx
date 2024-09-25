@@ -1,8 +1,8 @@
 import { ItensContainer } from "./styles.jsx";
 import Product from "../Product/index.jsx";
 
-import imgSushi from "../../assets/sushi.png";
-import imgMacarrao from "../../assets/macarrao.png";
+import imgSushi from "../../../assets/sushi.png";
+import imgMacarrao from "../../../assets/macarrao.png";
 
 const mockProducts = [
   {
