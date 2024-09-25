@@ -1,10 +1,22 @@
-import { BannerContainer, Overlay, BannerMacarrao } from "../Banner/styles";
+import {
+  BannerContainer,
+  Overlay,
+  BannerMacarrao,
+  TextOverlay,
+  BottomText,
+  BannerTextContainer,
+} from "../Banner/styles";
+import ImageBanner from "../../../assets/macarrao.png";
 
-const Banner = ({ imageSrc }) => {
+const Banner = () => {
   return (
     <BannerContainer>
-      <BannerMacarrao src={imageSrc} alt="Banner Macarrão" />
+      <BannerMacarrao src={ImageBanner} alt="Banner Macarrão" />
       <Overlay />
+      <BannerTextContainer>
+        <TextOverlay>Italiana</TextOverlay>
+        <BottomText>La Dolce Vida Trattoria</BottomText>
+      </BannerTextContainer>
     </BannerContainer>
   );
 };
