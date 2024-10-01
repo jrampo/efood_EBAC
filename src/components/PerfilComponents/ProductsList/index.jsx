@@ -1,65 +1,32 @@
+import React, { useEffect, useState } from "react";
 import { ItensContainer } from "./styles.jsx";
-
-import Pizza from "../../../assets/pizza.png";
-
 import Product from "../Product";
 
-const mockProducts = [
-  {
-    id: 1,
-    name: "Pizza Marguerita",
-    image: Pizza,
-    description:
-      "A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
-  {
-    id: 2,
-    name: "Pizza Marguerita",
-    image: Pizza,
-    description:
-      "A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
-  {
-    id: 3,
-    name: "Pizza Marguerita",
-    image: Pizza,
-    description:
-      "A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
-  {
-    id: 4,
-    name: "Pizza Marguerita",
-    image: Pizza,
-    description:
-      "A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
-  {
-    id: 5,
-    name: "Pizza Marguerita",
-    image: Pizza,
-    description:
-      "A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
-  {
-    id: 6,
-    name: "Pizza Marguerita",
-    image: Pizza,
-    description:
-      "A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
-];
+const ProductsList = () => {
+  const [products, setProducts] = useState([]);
 
-const ProductsList = () => (
-  <ItensContainer>
-    {mockProducts.map((product) => (
-      <Product
-        key={product.id}
-        name={product.name}
-        image={product.image}
-        description={product.description}
-      />
-    ))}
-  </ItensContainer>
-);
+  useEffect(() => {
+    fetch("https://fake-api-tau.vercel.app/api/efood/restaurantes")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+      })
+      .catch((error) => console.error("Erro ao buscar produtos:", error));
+  }, []);
+
+  return (
+    <ItensContainer>
+      {products.length > 0 &&
+        products[0].cardapio.map((item) => (
+          <Product
+            key={item.id}
+            name={item.nome}
+            image={item.foto}
+            description={item.descricao}
+          />
+        ))}
+    </ItensContainer>
+  );
+};
 
 export default ProductsList;

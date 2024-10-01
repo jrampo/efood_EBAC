@@ -68,7 +68,7 @@ export const TitleContainer = styled.div`
 `;
 
 export const TextContainer = styled.p`
-  margin: 16px 0;
+  margin: 13px 0;
   font-family: Roboto;
   font-size: 14px;
   font-weight: 400;
@@ -85,6 +85,7 @@ export const ProductButton = styled.button`
   line-height: 16.41px;
   color: #ffebd9;
   border: none;
+  margin-top: 20px;
 `;
 
 export const StarRate = styled.div`
