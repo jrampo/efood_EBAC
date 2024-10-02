@@ -24,6 +24,8 @@ const ProductsList = ({ id }) => {
             name={item.nome}
             image={item.foto}
             description={item.descricao}
+            preco={item.preco}
+            porcao={item.porcao}
           />
         ))
       ) : (

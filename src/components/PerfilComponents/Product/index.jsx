@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ProductContainer,
   Image,
@@ -7,8 +7,19 @@ import {
   ProductButton,
   ContentContainer,
 } from "./styles";
+import Modal from "../Modal";
 
-const Product = ({ name, image, description }) => {
+const Product = ({ name, image, description, preco, porcao }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
   const formatDescription = `${description.slice(0, 150)}...`;
 
   return (
@@ -18,9 +29,19 @@ const Product = ({ name, image, description }) => {
         <ContentContainer>
           <TitleContainer>{name}</TitleContainer>
           <TextContainer>{formatDescription}</TextContainer>
-          <ProductButton>Adicionar ao carrinho</ProductButton>
+          <ProductButton onClick={handleOpenModal}>Mais detalhes</ProductButton>
         </ContentContainer>
       </ProductContainer>
+
+      <Modal
+        isOpen={modalOpen}
+        onClose={handleCloseModal}
+        content={description}
+        image={image}
+        title={name}
+        preco={preco}
+        porcao={porcao}
+      />
     </div>
   );
 };

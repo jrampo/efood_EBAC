@@ -58,4 +58,5 @@ export const ProductButton = styled.button`
   font-weight: 700;
   line-height: 16.41px;
   border: none;
+  cursor: pointer;
 `;
