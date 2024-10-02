@@ -30,7 +30,7 @@ const Product = ({ name, image, description, rate, tipoComida, destaque }) => {
         <TextContainer>{description}</TextContainer>
         <Badge>{tipoComida}</Badge>
         {destaque && <BadgeDestaque>Destaque da semana</BadgeDestaque>}
-        <ProductButton>Saiba mais</ProductButton>
+        <ProductButton to={`/perfil/1`}>Saiba mais</ProductButton>
       </ContentContainer>
     </ProductContainer>
   );

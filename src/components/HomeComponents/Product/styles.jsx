@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styled from "styled-components";
 
 export const ProductContainer = styled.div`
@@ -76,7 +78,8 @@ export const TextContainer = styled.p`
   text-align: left;
 `;
 
-export const ProductButton = styled.button`
+export const ProductButton = styled(Link)`
+  // Transforme o botão em um Link
   background-color: #e66767;
   padding: 4px 6px;
   font-family: Roboto;
@@ -86,6 +89,8 @@ export const ProductButton = styled.button`
   color: #ffebd9;
   border: none;
   margin-top: 20px;
+  text-decoration: none; // Remove a sublinhado do link
+  display: inline-block;
 `;
 
 export const StarRate = styled.div`
