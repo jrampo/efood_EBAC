@@ -9,7 +9,6 @@ export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-
   color: #ffebd9;
 `;
 
@@ -34,7 +33,6 @@ export const TitleContainer = styled.div`
   font-weight: 900;
   line-height: 18.75px;
   text-align: left;
-
   padding-top: 8px;
   padding-bottom: 8px;
 `;
@@ -45,7 +43,6 @@ export const TextContainer = styled.p`
   font-weight: 400;
   line-height: 22px;
   text-align: left;
-
   padding-bottom: 8px;
 `;
 

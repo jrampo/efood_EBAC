@@ -32,6 +32,10 @@ export const ModalTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+
+  p {
+    margin-top: 16px;
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -55,8 +59,7 @@ export const AddToCartButton = styled.button`
   color: #e66767;
   border: none;
   cursor: pointer;
-  width: 218px;
-  height: 24px;
+  width: 224px;
 
   font-family: Roboto;
   font-size: 14px;
@@ -64,4 +67,13 @@ export const AddToCartButton = styled.button`
   line-height: 16.41px;
 
   margin-top: 16px;
+`;
+
+export const PorcaoText = styled.div`
+  margin-top: 24px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
 `;

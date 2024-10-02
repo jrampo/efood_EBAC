@@ -6,6 +6,7 @@ import {
   ModalTextContainer,
   CloseButton,
   AddToCartButton,
+  PorcaoText,
 } from "./styles";
 
 const Modal = ({ isOpen, onClose, content, image, title, preco, porcao }) => {
@@ -17,6 +18,14 @@ const Modal = ({ isOpen, onClose, content, image, title, preco, porcao }) => {
     }
   };
 
+  // Formatar o preço para o formato em reais
+  const formatarPreco = (valor) => {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(valor);
+  };
+
   return (
     <ModalContainer onClick={handleOverlayClick}>
       <ModalContent>
@@ -26,8 +35,10 @@ const Modal = ({ isOpen, onClose, content, image, title, preco, porcao }) => {
           <ModalTextContainer>
             <h2>{title}</h2>
             <p>{content}</p>
-            <p>Serve de {porcao}</p>
-            <AddToCartButton>Adicionar ao Carrinho - R${preco}</AddToCartButton>
+            <PorcaoText>Serve de {porcao}</PorcaoText>
+            <AddToCartButton>
+              Adicionar ao Carrinho - {formatarPreco(preco)}
+            </AddToCartButton>
           </ModalTextContainer>
         </div>
       </ModalContent>
