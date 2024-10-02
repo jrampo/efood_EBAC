@@ -9,7 +9,7 @@ import {
 } from "./styles";
 
 const Product = ({ name, image, description }) => {
-  const formatDescription = `${description.slice(0, 170)}...`;
+  const formatDescription = `${description.slice(0, 150)}...`;
 
   return (
     <div className="container">

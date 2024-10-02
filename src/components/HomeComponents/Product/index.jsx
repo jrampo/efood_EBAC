@@ -15,7 +15,15 @@ import {
 
 import Estrela from "../../../assets/SVGs/Estrela";
 
-const Product = ({ name, image, description, rate, tipoComida, destaque }) => {
+const Product = ({
+  id,
+  name,
+  image,
+  description,
+  rate,
+  tipoComida,
+  destaque,
+}) => {
   return (
     <ProductContainer>
       <Image src={image} alt={name} />
@@ -30,7 +38,7 @@ const Product = ({ name, image, description, rate, tipoComida, destaque }) => {
         <TextContainer>{description}</TextContainer>
         <Badge>{tipoComida}</Badge>
         {destaque && <BadgeDestaque>Destaque da semana</BadgeDestaque>}
-        <ProductButton to={`/perfil/1`}>Saiba mais</ProductButton>
+        <ProductButton to={`/perfil/${id}`}>Saiba mais</ProductButton>
       </ContentContainer>
     </ProductContainer>
   );

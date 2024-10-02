@@ -8,22 +8,26 @@ import {
   BannerTextContainer,
 } from "../Banner/styles";
 
-import ImageBanner from "../../../assets/macarrao.png";
-
-const Banner = () => {
-  const [restaurant, setRestaurant] = useState("");
+const Banner = ({ id }) => {
+  const [restaurant, setRestaurant] = useState(null);
 
   useEffect(() => {
-    fetch("https://fake-api-tau.vercel.app/api/efood/restaurantes")
-      .then((response) => response.json())
-      .then((data) => {
-        setRestaurant(data[0]);
-      });
-  }, []);
+    if (id) {
+      fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setRestaurant(data);
+        });
+    }
+  }, [id]);
+
+  if (!restaurant) {
+    return <div>Carregando...</div>;
+  }
 
   return (
     <BannerContainer>
-      <BannerMacarrao src={ImageBanner} alt="Banner Macarrão" />
+      <BannerMacarrao src={restaurant.capa} alt="Banner restaurante" />
       <Overlay />
       <BannerTextContainer>
         <>

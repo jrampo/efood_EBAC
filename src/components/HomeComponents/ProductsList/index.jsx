@@ -23,6 +23,7 @@ const ProductsList = () => {
 
         return (
           <Product
+            id={restaurant.id}
             key={restaurant.id}
             name={restaurant.titulo}
             image={restaurant.capa}
