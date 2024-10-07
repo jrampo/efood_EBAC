@@ -7,7 +7,7 @@ import {
   ProductButton,
   ContentContainer,
 } from "./styles";
-import Modal from "../Modal";
+import Modal from "../ModalProduct";
 
 const Product = ({ name, image, description, preco, porcao }) => {
   const [modalOpen, setModalOpen] = useState(false);

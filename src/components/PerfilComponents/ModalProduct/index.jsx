@@ -18,7 +18,6 @@ const Modal = ({ isOpen, onClose, content, image, title, preco, porcao }) => {
     }
   };
 
-  // Formatar o preço para o formato em reais
   const formatarPreco = (valor) => {
     return new Intl.NumberFormat("pt-BR", {
       style: "currency",
