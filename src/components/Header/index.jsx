@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import {
   HeaderContainer,
   Text,
+  Text2,
   DoodlesContainer,
   LogoContainer,
   PerfilHeaderContainer,
@@ -44,9 +45,9 @@ const Header = () => {
         ) : (
           <PerfilHeaderContainer>
             <Text>Restaurantes</Text>
-            <Text>
+            <Text2 to={`/`}>
               <Logo />
-            </Text>
+            </Text2>
             <Cart onClick={openCart}>
               {items.length} produto(s) no carrinho
             </Cart>

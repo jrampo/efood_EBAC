@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Link } from "react-router-dom";
+
 export const HeaderContainer = styled.header`
   padding-top: 48px;
   position: relative;
@@ -14,6 +16,13 @@ export const HeaderContainer = styled.header`
 `;
 
 export const Text = styled.div`
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+`;
+
+export const Text2 = styled(Link)`
   text-align: center;
   font-weight: bold;
   position: relative;
