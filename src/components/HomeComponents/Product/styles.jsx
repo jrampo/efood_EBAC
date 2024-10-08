@@ -79,7 +79,6 @@ export const TextContainer = styled.p`
 `;
 
 export const ProductButton = styled(Link)`
-  // Transforme o botão em um Link
   background-color: #e66767;
   padding: 4px 6px;
   font-family: Roboto;
@@ -89,7 +88,7 @@ export const ProductButton = styled(Link)`
   color: #ffebd9;
   border: none;
   margin-top: 20px;
-  text-decoration: none; // Remove a sublinhado do link
+  text-decoration: none;
   display: inline-block;
 `;
 

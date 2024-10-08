@@ -1,47 +1,49 @@
 import React from "react";
-import {
-  Overlay,
-  CardContainer,
-  Sidebar,
-  Price,
-  Quantity,
-  CardItem,
-} from "./styles";
+import { Overlay, CardContainer, Sidebar, Price, CardItem } from "./styles";
+import trash from "../../assets/trash.png";
+import { useSelector, useDispatch } from "react-redux";
+import { close } from "../../store/reducers/cart";
 
-const ModalCarrinho = ({ isOpen, onClose, items }) => {
-  if (!isOpen) return null;
+const ModalCarrinho = () => {
+  const { isOpen, items } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
-  const handleOverlayClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
+  const closeCart = () => {
+    dispatch(close());
   };
 
+  const formatarPreco = (valor) => {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(valor);
+  };
+
+  const valorTotal = items.reduce((total, item) => total + item.preco, 0);
+
+  console.log(items);
+
   return (
-    <CardContainer
-      className={isOpen ? "is-open" : ""}
-      onClick={handleOverlayClick}
-    >
-      <Overlay />
+    <CardContainer className={isOpen ? "is-open" : ""}>
+      <Overlay onClick={closeCart} />
       <Sidebar>
-        <h2>Carrinho de Compras</h2>
         <ul>
           {items.map((item) => (
             <CardItem key={item.id}>
-              <img src={item.image} alt={item.title} />
+              <img src={item.foto} alt={item.title} />
               <div>
                 <h3>{item.title}</h3>
-                <span>{item.price}</span>
-                <button onClick={() => item.onRemove(item.id)}>Remover</button>
+                <span className="price">{formatarPreco(item.preco)}</span>
+                <img src={trash} alt="trash" className="trash-icon" />
               </div>
             </CardItem>
           ))}
         </ul>
-        <Quantity>Total: {items.length} itens</Quantity>
         <Price>
-          Valor Total: <span>{/* inserir lógica para calcular o total */}</span>
+          <p>Valor Total:</p>
+          <p>{formatarPreco(valorTotal)}</p>
         </Price>
-        <button onClick={onClose}>Fechar</button>
+        <button>Continuar com a entrega</button>
       </Sidebar>
     </CardContainer>
   );

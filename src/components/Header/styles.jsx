@@ -20,6 +20,15 @@ export const Text = styled.div`
   z-index: 1;
 `;
 
+export const Cart = styled.div`
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+
+  cursor: pointer;
+`;
+
 export const DoodlesContainer = styled.div`
   position: absolute;
   top: 0;

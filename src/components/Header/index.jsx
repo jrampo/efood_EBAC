@@ -5,6 +5,7 @@ import {
   DoodlesContainer,
   LogoContainer,
   PerfilHeaderContainer,
+  Cart,
 } from "./styles";
 
 import Logo from "../../assets/SVGs/LogoEfood.jsx";
@@ -12,9 +13,20 @@ import BackgroundDoodles from "../../assets/SVGs/BackgroundDoodles.jsx";
 
 import FraseHome from "../HomeComponents/FraseHome";
 
+import { open } from "../../store/reducers/cart.js";
+import { useDispatch, useSelector } from "react-redux";
+
 const Header = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  const dispatch = useDispatch();
+
+  const { items } = useSelector((state) => state.cart);
+
+  const openCart = () => {
+    dispatch(open());
+  };
 
   return (
     <HeaderContainer isHome={isHome}>
@@ -35,7 +47,9 @@ const Header = () => {
             <Text>
               <Logo />
             </Text>
-            <Text>0 produto(s) no carrinho</Text>
+            <Cart onClick={openCart}>
+              {items.length} produto(s) no carrinho
+            </Cart>
           </PerfilHeaderContainer>
         )}
       </div>

@@ -8,8 +8,19 @@ import {
   AddToCartButton,
   PorcaoText,
 } from "./styles";
+import { useDispatch } from "react-redux";
+import { add, open } from "../../../store/reducers/cart";
+
+export const formatarPreco = (valor) => {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(valor);
+};
 
 const Modal = ({ isOpen, onClose, content, image, title, preco, porcao }) => {
+  const dispatch = useDispatch();
+
   if (!isOpen) return null;
 
   const handleOverlayClick = (e) => {
@@ -18,11 +29,9 @@ const Modal = ({ isOpen, onClose, content, image, title, preco, porcao }) => {
     }
   };
 
-  const formatarPreco = (valor) => {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(valor);
+  const addToCart = () => {
+    dispatch(add({ title, preco, foto: image }));
+    dispatch(open());
   };
 
   return (
@@ -35,7 +44,7 @@ const Modal = ({ isOpen, onClose, content, image, title, preco, porcao }) => {
             <h2>{title}</h2>
             <p>{content}</p>
             <PorcaoText>Serve de {porcao}</PorcaoText>
-            <AddToCartButton>
+            <AddToCartButton onClick={addToCart}>
               Adicionar ao Carrinho - {formatarPreco(preco)}
             </AddToCartButton>
           </ModalTextContainer>

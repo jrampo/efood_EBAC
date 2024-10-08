@@ -26,38 +26,39 @@ export const CardContainer = styled.div`
 `;
 
 export const Sidebar = styled.aside`
-  background-color: #333;
+  background-color: #e66767;
   z-index: 1;
-  padding: 40px 16px 0 16px;
+  padding: 40px 8px 0 8px;
   max-width: 360px;
   width: 100%;
 
   button {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16.41px;
+    text-align: center;
     max-width: 100%;
     width: 100%;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #ffebd9;
+    color: #e66767;
     border: none;
-    padding: 12px;
+    padding: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #0056b3;
-    }
   }
 `;
 
-export const Price = styled.p`
-  font-weight: bold;
-  font-size: 14px;
-  color: #fff;
-  margin-bottom: 24px;
+export const Price = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  margin-top: 40px;
+  color: #ffebd9;
 
-  span {
-    display: block;
-    font-size: 12px;
-    color: #aaa;
+  p {
+    margin: 0;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 700;
   }
 `;
 
@@ -71,42 +72,49 @@ export const Quantity = styled.p`
 
 export const CardItem = styled.li`
   display: flex;
-  border-bottom: 1px solid #aaa;
-  padding: 8px 0;
+  background-color: #ffebd9;
+  padding: 12px;
   position: relative;
+  color: #e66767;
+  margin-bottom: 16px;
 
   img {
     height: 80px;
     width: 80px;
     object-fit: cover;
-    margin-right: 24px;
+    margin-right: 12px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    position: relative;
   }
 
   h3 {
-    color: #fff;
-    font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 21.09px;
+    margin: 0;
+    margin-bottom: 16px;
   }
 
-  span {
-    display: block;
-    color: #fff;
-    font-weight: bold;
+  .price {
+    color: #e66767;
     font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 16px;
   }
 
-  button {
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
+  .trash-icon {
     position: absolute;
-    top: 8px;
+    bottom: 0;
     right: 0;
-    font-size: 16px;
-
-    &:hover {
-      color: #ff0000;
-    }
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
   }
 `;

@@ -29,7 +29,6 @@ export const BannerTextContainer = styled.div`
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
   display: flex;
   flex-direction: column;
 `;

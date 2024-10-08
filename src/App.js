@@ -7,6 +7,7 @@ import Rotas from "./routes";
 import { GlobalCss, ColorBody } from "./styles";
 import Header from "./components/Header";
 import { store } from "./store";
+import ModalCarrinho from "./components/Cart";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Header />
         <ColorBody>
           <Rotas />
+          <ModalCarrinho />
         </ColorBody>
       </Router>
     </Provider>
