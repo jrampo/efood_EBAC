@@ -22,7 +22,7 @@ export const Text = styled.div`
   z-index: 1;
 `;
 
-export const Text2 = styled(Link)`
+export const Text2 = styled.div`
   text-align: center;
   font-weight: bold;
   position: relative;
