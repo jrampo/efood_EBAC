@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ItensContainer } from "./styles.jsx";
 import Product from "../Product";
+import { useGetRestaurantByIdQuery } from "../../../services/api.js";
 
 const ProductsList = ({ id }) => {
-  const [products, setProducts] = useState([]);
+  const { data: restaurant, isLoading } = useGetRestaurantByIdQuery(id);
 
-  useEffect(() => {
-    if (id) {
-      fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setProducts(data.cardapio);
-        });
-    }
-  }, [id]);
+  if (isLoading) {
+    return <p>Carregando produtos...</p>;
+  }
 
   return (
     <ItensContainer>
-      {products.length > 0 ? (
-        products.map((item) => (
+      {restaurant && restaurant.cardapio && restaurant.cardapio.length > 0 ? (
+        restaurant.cardapio.map((item) => (
           <Product
             key={item.id}
             name={item.nome}
@@ -29,7 +24,7 @@ const ProductsList = ({ id }) => {
           />
         ))
       ) : (
-        <p>Carregando produtos...</p>
+        <p>Não há produtos disponíveis.</p>
       )}
     </ItensContainer>
   );

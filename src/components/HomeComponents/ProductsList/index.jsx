@@ -1,17 +1,14 @@
-import { useEffect, useState } from "react";
 import { ItensContainer } from "./styles.jsx";
 import Product from "../Product/index.jsx";
 
-const ProductsList = () => {
-  const [restaurants, setRestaurants] = useState([]);
+import { useGetRestaurantsQuery } from "../../../services/api.js";
 
-  useEffect(() => {
-    fetch("https://fake-api-tau.vercel.app/api/efood/restaurantes")
-      .then((response) => response.json())
-      .then((data) => {
-        setRestaurants(data);
-      });
-  }, []);
+const ProductsList = () => {
+  const { data: restaurants = [], isLoading } = useGetRestaurantsQuery();
+
+  if (isLoading) {
+    return <div>Carregando...</div>;
+  }
 
   return (
     <ItensContainer>

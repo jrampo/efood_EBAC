@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   BannerContainer,
   Overlay,
@@ -8,20 +7,12 @@ import {
   BannerTextContainer,
 } from "../Banner/styles";
 
+import { useGetRestaurantByIdQuery } from "../../../services/api";
+
 const Banner = ({ id }) => {
-  const [restaurant, setRestaurant] = useState(null);
+  const { data: restaurant, isLoading } = useGetRestaurantByIdQuery(id);
 
-  useEffect(() => {
-    if (id) {
-      fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setRestaurant(data);
-        });
-    }
-  }, [id]);
-
-  if (!restaurant) {
+  if (isLoading) {
     return <div>Carregando...</div>;
   }
 
@@ -30,10 +21,8 @@ const Banner = ({ id }) => {
       <BannerMacarrao src={restaurant.capa} alt="Banner restaurante" />
       <Overlay />
       <BannerTextContainer>
-        <>
-          <TextOverlay>{restaurant.tipo}</TextOverlay>
-          <BottomText>{restaurant.titulo}</BottomText>
-        </>
+        <TextOverlay>{restaurant.tipo}</TextOverlay>
+        <BottomText>{restaurant.titulo}</BottomText>
       </BannerTextContainer>
     </BannerContainer>
   );
