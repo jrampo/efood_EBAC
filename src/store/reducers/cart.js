@@ -12,6 +12,10 @@ const cartSlice = createSlice({
     add: (state, action) => {
       state.items.push(action.payload);
     },
+    removeItem: (state, action) => {
+      alert("Removendo item com id:", action.payload); // Confirme o ID aqui
+      state.items = state.items.filter((item) => item.id !== action.payload);
+    },
     open: (state) => {
       state.isOpen = true;
     },
@@ -21,5 +25,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { add, open, close } = cartSlice.actions;
+export const { add, removeItem, open, close } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -18,7 +18,16 @@ export const formatarPreco = (valor) => {
   }).format(valor);
 };
 
-const Modal = ({ isOpen, onClose, content, image, title, preco, porcao }) => {
+const Modal = ({
+  isOpen,
+  onClose,
+  content,
+  image,
+  title,
+  preco,
+  porcao,
+  id,
+}) => {
   const dispatch = useDispatch();
 
   if (!isOpen) return null;
@@ -30,7 +39,7 @@ const Modal = ({ isOpen, onClose, content, image, title, preco, porcao }) => {
   };
 
   const addToCart = () => {
-    dispatch(add({ title, preco, foto: image }));
+    dispatch(add({ id, title, preco, foto: image }));
     dispatch(open());
   };
 

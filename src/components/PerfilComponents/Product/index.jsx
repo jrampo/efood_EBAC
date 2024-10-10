@@ -9,7 +9,7 @@ import {
 } from "./styles";
 import Modal from "../ModalProduct";
 
-const Product = ({ name, image, description, preco, porcao }) => {
+const Product = ({ id, name, image, description, preco, porcao }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -41,6 +41,7 @@ const Product = ({ name, image, description, preco, porcao }) => {
         title={name}
         preco={preco}
         porcao={porcao}
+        id={id}
       />
     </div>
   );

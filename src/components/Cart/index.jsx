@@ -2,7 +2,7 @@ import React from "react";
 import { Overlay, CardContainer, Sidebar, Price, CardItem } from "./styles";
 import trash from "../../assets/trash.png";
 import { useSelector, useDispatch } from "react-redux";
-import { close } from "../../store/reducers/cart";
+import { close, removeItem } from "../../store/reducers/cart";
 
 const ModalCarrinho = () => {
   const { isOpen, items } = useSelector((state) => state.cart);
@@ -21,7 +21,10 @@ const ModalCarrinho = () => {
 
   const valorTotal = items.reduce((total, item) => total + item.preco, 0);
 
-  console.log(items);
+  const handleRemoveItem = (id) => {
+    alert(`Removendo item com id: ${id}`);
+    dispatch(removeItem(id));
+  };
 
   return (
     <CardContainer className={isOpen ? "is-open" : ""}>
@@ -34,7 +37,12 @@ const ModalCarrinho = () => {
               <div>
                 <h3>{item.title}</h3>
                 <span className="price">{formatarPreco(item.preco)}</span>
-                <img src={trash} alt="trash" className="trash-icon" />
+                <img
+                  src={trash}
+                  alt="trash"
+                  className="trash-icon"
+                  onClick={() => handleRemoveItem(item.id)}
+                />
               </div>
             </CardItem>
           ))}
