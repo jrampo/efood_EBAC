@@ -34,7 +34,6 @@ export const Cart = styled.div`
   font-weight: bold;
   position: relative;
   z-index: 1;
-
   cursor: pointer;
 `;
 

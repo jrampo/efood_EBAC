@@ -1,5 +1,12 @@
 import React from "react";
-import { Overlay, CardContainer, Sidebar, Price, CardItem } from "./styles";
+import {
+  Overlay,
+  CardContainer,
+  Sidebar,
+  Price,
+  CardItem,
+  LinkEntrega,
+} from "./styles";
 import trash from "../../assets/trash.png";
 import { useSelector, useDispatch } from "react-redux";
 import { close, remove } from "../../store/reducers/cart";
@@ -50,7 +57,7 @@ const ModalCarrinho = () => {
           <p>Valor Total:</p>
           <p>{formatarPreco(valorTotal)}</p>
         </Price>
-        <button>Continuar com a entrega</button>
+        <LinkEntrega to="/checkout">Continuar com a entrega</LinkEntrega>
       </Sidebar>
     </CardContainer>
   );

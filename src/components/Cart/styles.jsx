@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Overlay = styled.div`
@@ -25,26 +26,28 @@ export const CardContainer = styled.div`
   }
 `;
 
+export const LinkEntrega = styled(Link)`
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.41px;
+  text-align: center;
+  width: 100%;
+  background-color: #ffebd9;
+  color: #e66767;
+  border: none;
+  padding: 4px;
+
+  cursor: pointer;
+  text-decoration: none;
+`;
+
 export const Sidebar = styled.aside`
   background-color: #e66767;
   z-index: 1;
   padding: 40px 8px 0 8px;
   max-width: 360px;
   width: 100%;
-
-  button {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 16.41px;
-    text-align: center;
-    max-width: 100%;
-    width: 100%;
-    background-color: #ffebd9;
-    color: #e66767;
-    border: none;
-    padding: 4px;
-    cursor: pointer;
-  }
 `;
 
 export const Price = styled.div`
