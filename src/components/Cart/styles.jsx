@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Overlay = styled.div`
@@ -26,7 +25,7 @@ export const CardContainer = styled.div`
   }
 `;
 
-export const LinkEntrega = styled(Link)`
+export const LinkEntrega = styled.button`
   display: block;
   font-size: 14px;
   font-weight: 700;

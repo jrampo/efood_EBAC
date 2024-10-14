@@ -21,6 +21,10 @@ export const CardContainer = styled.div`
 
   justify-content: flex-end;
   z-index: 1;
+
+  &.is-open {
+    display: flex;
+  }
 `;
 
 export const Sidebar = styled.aside`

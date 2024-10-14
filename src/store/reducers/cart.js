@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   items: [],
   isOpen: false,
+  entregaAtiva: false,
+  pagamentoAtivo: false,
 };
 
 const cartSlice = createSlice({
@@ -19,7 +21,6 @@ const cartSlice = createSlice({
         alert("Este prato já está no carrinho!");
       }
     },
-
     remove: (state, action) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
     },
@@ -29,8 +30,30 @@ const cartSlice = createSlice({
     close: (state) => {
       state.isOpen = false;
     },
+    continuarEntrega: (state) => {
+      state.isOpen = false;
+      state.entregaAtiva = true;
+    },
+    voltarParaEntrega: (state) => {
+      state.pagamentoAtivo = false;
+      state.entregaAtiva = true;
+    },
+    voltarCarrinho: (state) => {
+      state.entregaAtiva = false;
+      state.pagamentoAtivo = false;
+      state.isOpen = true;
+    },
   },
 });
 
-export const { add, remove, open, close } = cartSlice.actions;
+export const {
+  add,
+  remove,
+  open,
+  close,
+  continuarEntrega,
+  voltarParaEntrega,
+  voltarCarrinho,
+} = cartSlice.actions;
+
 export default cartSlice.reducer;

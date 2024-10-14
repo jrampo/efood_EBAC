@@ -8,7 +8,7 @@ import { GlobalCss, ColorBody } from "./styles";
 import Header from "./components/Header";
 import { store } from "./store";
 import ModalCarrinho from "./components/Cart";
-import Checkout from "./components/Checkout";
+import Entrega from "./components/Checkout/Entrega";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <ColorBody>
           <Rotas />
           <ModalCarrinho />
-          <Checkout />
+          <Entrega />
         </ColorBody>
       </Router>
     </Provider>

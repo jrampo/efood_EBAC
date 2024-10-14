@@ -1,3 +1,4 @@
+import { useSelector, useDispatch } from "react-redux";
 import React from "react";
 import {
   Overlay,
@@ -8,8 +9,7 @@ import {
   LinkEntrega,
 } from "./styles";
 import trash from "../../assets/trash.png";
-import { useSelector, useDispatch } from "react-redux";
-import { close, remove } from "../../store/reducers/cart";
+import { close, remove, continuarEntrega } from "../../store/reducers/cart";
 
 const ModalCarrinho = () => {
   const { isOpen, items } = useSelector((state) => state.cart);
@@ -30,6 +30,10 @@ const ModalCarrinho = () => {
 
   const handleRemoveItem = (id) => {
     dispatch(remove(id));
+  };
+
+  const handleContinuarEntrega = () => {
+    dispatch(continuarEntrega());
   };
 
   return (
@@ -57,7 +61,9 @@ const ModalCarrinho = () => {
           <p>Valor Total:</p>
           <p>{formatarPreco(valorTotal)}</p>
         </Price>
-        <LinkEntrega to="/checkout">Continuar com a entrega</LinkEntrega>
+        <LinkEntrega onClick={handleContinuarEntrega}>
+          Continuar com a entrega
+        </LinkEntrega>
       </Sidebar>
     </CardContainer>
   );
