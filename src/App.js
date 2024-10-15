@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import { store } from "./store";
 import ModalCarrinho from "./components/Cart";
 import Entrega from "./components/Checkout/Entrega";
+import Pagamento from "./components/Checkout/Pagamento";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Rotas />
           <ModalCarrinho />
           <Entrega />
+          <Pagamento />
         </ColorBody>
       </Router>
     </Provider>

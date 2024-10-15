@@ -8,15 +8,31 @@ import {
   Title,
   Buttons,
 } from "./styles";
-import { voltarCarrinho } from "../../../store/reducers/cart";
+import {
+  voltarCarrinho,
+  continuarPagamento,
+  close,
+} from "../../../store/reducers/cart";
 
 const Entrega = () => {
   const dispatch = useDispatch();
   const { entregaAtiva } = useSelector((state) => state.cart);
 
+  const handleVoltarCarrinho = () => {
+    dispatch(voltarCarrinho());
+  };
+
+  const handleContinuarPagamento = () => {
+    dispatch(continuarPagamento());
+  };
+
+  const closeCart = () => {
+    dispatch(close());
+  };
+
   return (
     <CardContainer className={entregaAtiva ? "is-open" : ""}>
-      <Overlay />
+      <Overlay onClick={closeCart} />
       <Sidebar>
         <Title>Entrega</Title>
         <Forms>
@@ -48,10 +64,10 @@ const Entrega = () => {
           <input type="text" id="complemento" />
         </Forms>
         <Buttons>
-          <button>Continuar com o pagamento</button>
-          <button onClick={() => dispatch(voltarCarrinho())}>
-            Voltar para o carrinho
+          <button onClick={handleContinuarPagamento}>
+            Continuar com o pagamento
           </button>
+          <button onClick={handleVoltarCarrinho}>Voltar para o carrinho</button>
         </Buttons>
       </Sidebar>
     </CardContainer>

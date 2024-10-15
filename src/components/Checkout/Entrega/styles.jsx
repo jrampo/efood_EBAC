@@ -17,7 +17,7 @@ export const CardContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  display: none; // alterar pra flex quando for continuar
+  display: none;
 
   justify-content: flex-end;
   z-index: 1;

@@ -17,7 +17,7 @@ export const CardContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  display: none; // alterar pra flex quando for continuar
+  display: none;
 
   justify-content: flex-end;
   z-index: 1;
@@ -72,10 +72,11 @@ export const Forms = styled.div`
 
 export const FormsFlex = styled.div`
   display: flex;
+  width: 100%;
+`;
 
-  input:first-of-type {
-    margin-right: 34px;
-  }
+export const FormsFlex2 = styled.div`
+  display: flex;
 `;
 
 export const Title = styled.h3`
