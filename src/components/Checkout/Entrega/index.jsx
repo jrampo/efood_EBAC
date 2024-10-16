@@ -16,6 +16,7 @@ import {
 } from "../../../store/reducers/cart";
 
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Entrega = () => {
   const dispatch = useDispatch();
@@ -42,10 +43,37 @@ const Entrega = () => {
       numero: "",
       complemento: "",
     },
+    validationSchema: Yup.object({
+      destino: Yup.string()
+        .min(5, "Deve ter no mínimo 5 caractéres")
+        .required("O campo é obrigatório"),
+      endereco: Yup.string()
+        .min(10, "Deve ter no mínimo 10 caractéres")
+        .required("O campo é obrigatório"),
+      cidade: Yup.string()
+        .min(5, "Deve ter no mínimo 5 caractéres")
+        .required("O campo é obrigatório"),
+      cep: Yup.number()
+        .min(8, "Deve ter 8 caracteres")
+        .max(8, "Deve ter 8 caracteres")
+        .required("O campo é obrigatório"),
+      numero: Yup.number()
+        .min(1, "Deve ter no mínimo 1 caractere")
+        .required("O campo é obrigatório"),
+      complemento: Yup.string(),
+    }),
     onSubmit: (values) => {
       console.log(values);
     },
   });
+
+  const getErrorMessage = (fieldName, message) => {
+    const isTouched = fieldName in form.touched;
+    const isInvalid = fieldName in form.errors;
+
+    if (isTouched && isInvalid) return message;
+    return "";
+  };
 
   return (
     <CardContainer className={entregaAtiva ? "is-open" : ""}>
@@ -61,7 +89,9 @@ const Entrega = () => {
               name="destino"
               value={form.values.destino}
               onChange={form.handleChange}
+              onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage("destino", form.errors.destino)}</small>
           </Forms>
           <Forms>
             <label htmlFor="endereco">Endereço</label>
@@ -71,7 +101,9 @@ const Entrega = () => {
               name="endereco"
               value={form.values.endereco}
               onChange={form.handleChange}
+              onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage("endereco", form.errors.endereco)}</small>
           </Forms>
           <Forms>
             <label htmlFor="cidade">Cidade</label>
@@ -81,7 +113,9 @@ const Entrega = () => {
               name="cidade"
               value={form.values.cidade}
               onChange={form.handleChange}
+              onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage("cidade", form.errors.cidade)}</small>
           </Forms>
 
           <FormsFlex>
@@ -93,7 +127,9 @@ const Entrega = () => {
                 name="cep"
                 value={form.values.cep}
                 onChange={form.handleChange}
+                onBlur={form.handleBlur}
               />
+              <small>{getErrorMessage("cep", form.errors.cep)}</small>
             </Forms>
             <Forms>
               <label htmlFor="numero">Número</label>
@@ -103,7 +139,9 @@ const Entrega = () => {
                 name="numero"
                 value={form.values.numero}
                 onChange={form.handleChange}
+                onBlur={form.handleBlur}
               />
+              <small>{getErrorMessage("numero", form.errors.numero)}</small>
             </Forms>
           </FormsFlex>
 
@@ -115,7 +153,11 @@ const Entrega = () => {
               name="complemento"
               value={form.values.complemento}
               onChange={form.handleChange}
+              onBlur={form.handleBlur}
             />
+            <small>
+              {getErrorMessage("complemento", form.errors.complemento)}
+            </small>
           </Forms>
           <Buttons>
             <button onClick={handleContinuarPagamento}>
