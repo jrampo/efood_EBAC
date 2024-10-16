@@ -92,3 +92,5 @@ export const Title = styled.h3`
 export const Buttons = styled.div`
   margin-top: 24px;
 `;
+
+export const Buttons2 = styled.div``;
