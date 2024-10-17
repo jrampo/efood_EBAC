@@ -5,6 +5,7 @@ const initialState = {
   isOpen: false,
   entregaAtiva: false,
   pagamentoAtivo: false,
+  confirmacaoAtivo: false,
 };
 
 const cartSlice = createSlice({
@@ -31,6 +32,7 @@ const cartSlice = createSlice({
       state.isOpen = false;
       state.entregaAtiva = false;
       state.pagamentoAtivo = false;
+      state.confirmacaoAtivo = false;
     },
     continuarEntrega: (state) => {
       state.isOpen = false;
@@ -48,6 +50,11 @@ const cartSlice = createSlice({
       state.entregaAtiva = false;
       state.pagamentoAtivo = true;
     },
+    continuarConfirmacao: (state) => {
+      state.entregaAtiva = false;
+      state.pagamentoAtivo = false;
+      state.confirmacaoAtivo = true;
+    },
   },
 });
 
@@ -60,6 +67,7 @@ export const {
   voltarParaEntrega,
   voltarCarrinho,
   continuarPagamento,
+  continuarConfirmacao,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

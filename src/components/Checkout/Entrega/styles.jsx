@@ -25,6 +25,10 @@ export const CardContainer = styled.div`
   &.is-open {
     display: flex;
   }
+
+  small {
+    margin-top: 2px;
+  }
 `;
 
 export const Sidebar = styled.aside`

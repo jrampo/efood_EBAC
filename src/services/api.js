@@ -9,10 +9,21 @@ const api = createApi({
       query: (id) => `restaurantes/${id}`,
     }),
     getRestaurants: builder.query({
-      query: (id) => "restaurantes",
+      query: () => "restaurantes",
+    }),
+    purchase: builder.mutation({
+      query: (pedido) => ({
+        url: "checkout",
+        method: "POST",
+        body: pedido,
+      }),
     }),
   }),
 });
 
-export const { useGetRestaurantByIdQuery, useGetRestaurantsQuery } = api;
+export const {
+  useGetRestaurantByIdQuery,
+  useGetRestaurantsQuery,
+  usePurchaseMutation,
+} = api;
 export default api;

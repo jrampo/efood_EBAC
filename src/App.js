@@ -10,6 +10,7 @@ import { store } from "./store";
 import ModalCarrinho from "./components/Cart";
 import Entrega from "./components/Checkout/Entrega";
 import Pagamento from "./components/Checkout/Pagamento";
+import Confirmacao from "./components/Checkout/Confirmacao";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <ModalCarrinho />
           <Entrega />
           <Pagamento />
+          <Confirmacao />
         </ColorBody>
       </Router>
     </Provider>
