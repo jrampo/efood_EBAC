@@ -1,6 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import {
+  voltarParaEntrega,
+  close,
+  continuarConfirmacao,
+} from "../../../store/reducers/cart";
 
 import {
   CardContainer,
@@ -13,11 +18,6 @@ import {
   Buttons,
   Buttons2,
 } from "./styles";
-import {
-  voltarParaEntrega,
-  close,
-  continuarConfirmacao,
-} from "../../../store/reducers/cart";
 
 const Pagamento = () => {
   const dispatch = useDispatch();
