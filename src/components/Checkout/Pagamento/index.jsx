@@ -58,8 +58,8 @@ const Pagamento = () => {
         .min(1, "Deve ser um mês válido")
         .max(12, "Deve ser um mês válido")
         .required("O campo é obrigatório"),
-      ano: Yup.number()
-        .min(1000, "Deve ter 4 dígitos")
+      ano: Yup.string()
+        .matches(/^\d{4}$/, "Deve ter exatamente 4 dígitos")
         .required("O campo é obrigatório"),
     }),
     onSubmit: (values) => {
