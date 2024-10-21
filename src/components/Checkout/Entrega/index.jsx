@@ -64,6 +64,7 @@ const Entrega = () => {
     }),
     onSubmit: (values) => {
       console.log(values);
+
       handleContinuarPagamento();
     },
   });
