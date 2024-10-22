@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { close } from "../../../store/reducers/cart";
+import { close, clear } from "../../../store/reducers/cart";
 
 import {
   CardContainer,
@@ -15,6 +15,11 @@ const Confirmacao = () => {
   const { confirmacaoAtivo, orderId } = useSelector((state) => state.cart);
 
   const closeCart = () => {
+    dispatch(close());
+  };
+
+  const clearCart = () => {
+    dispatch(clear());
     dispatch(close());
   };
 
@@ -43,7 +48,7 @@ const Confirmacao = () => {
           </p>
         </Texts>
         <Buttons>
-          <button onClick={closeCart}>Concluir</button>
+          <button onClick={clearCart}>Concluir</button>
         </Buttons>
       </Sidebar>
     </CardContainer>

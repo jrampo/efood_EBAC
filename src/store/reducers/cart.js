@@ -67,6 +67,9 @@ const cartSlice = createSlice({
     setOrderId: (state, action) => {
       state.orderId = action.payload;
     },
+    clear: (state) => {
+      state.items = [];
+    },
   },
 });
 
@@ -83,6 +86,7 @@ export const {
   setDeliveryData,
   setPaymentData,
   setOrderId,
+  clear,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
