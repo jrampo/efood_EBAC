@@ -12,7 +12,7 @@ import {
 
 const Confirmacao = () => {
   const dispatch = useDispatch();
-  const { confirmacaoAtivo } = useSelector((state) => state.cart);
+  const { confirmacaoAtivo, orderId } = useSelector((state) => state.cart);
 
   const closeCart = () => {
     dispatch(close());
@@ -22,7 +22,7 @@ const Confirmacao = () => {
     <CardContainer className={confirmacaoAtivo ? "is-open" : ""}>
       <Overlay onClick={closeCart} />
       <Sidebar>
-        <Title>Pedido realizado - (ORDER_ID)</Title>
+        <Title>Pedido realizado - {orderId}</Title>
         <Texts>
           <p>
             Estamos felizes em informar que seu pedido já está em processo de
@@ -43,7 +43,7 @@ const Confirmacao = () => {
           </p>
         </Texts>
         <Buttons>
-          <button>Concluir</button>
+          <button onClick={closeCart}>Concluir</button>
         </Buttons>
       </Sidebar>
     </CardContainer>

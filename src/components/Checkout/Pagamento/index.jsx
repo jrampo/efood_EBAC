@@ -6,6 +6,7 @@ import {
   close,
   continuarConfirmacao,
   setPaymentData,
+  setOrderId,
 } from "../../../store/reducers/cart";
 
 import {
@@ -28,8 +29,6 @@ const Pagamento = () => {
   );
 
   const [purchase] = usePurchaseMutation();
-
-  //
 
   const formatarPreco = (valor) => {
     return new Intl.NumberFormat("pt-BR", {
@@ -70,7 +69,7 @@ const Pagamento = () => {
         .matches(/^\d{4}$/, "Deve ter exatamente 4 dígitos")
         .required("O campo é obrigatório"),
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       const paymentData = {
         card: {
           name: values.cartaoNome,
@@ -85,11 +84,19 @@ const Pagamento = () => {
       dispatch(setPaymentData(paymentData));
 
       if (deliveryData) {
-        purchase({
-          products: items.map((item) => ({ id: item.id, price: item.preco })),
-          delivery: deliveryData,
-          payment: paymentData,
-        });
+        try {
+          const response = await purchase({
+            products: items.map((item) => ({ id: item.id, price: item.preco })),
+            delivery: deliveryData,
+            payment: paymentData,
+          }).unwrap();
+          console.log("pedido realizado:", response);
+          dispatch(setOrderId(response.orderId));
+        } catch (error) {
+          console.error("erro ao realizar o pedido:", error);
+        }
+
+        dispatch(continuarConfirmacao());
       }
       console.log(values);
       dispatch(continuarConfirmacao());

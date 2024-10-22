@@ -8,6 +8,7 @@ const initialState = {
   confirmacaoAtivo: false,
   deliveryData: null,
   paymentData: null,
+  orderId: null,
 };
 
 const cartSlice = createSlice({
@@ -63,6 +64,9 @@ const cartSlice = createSlice({
     setPaymentData: (state, action) => {
       state.paymentData = action.payload;
     },
+    setOrderId: (state, action) => {
+      state.orderId = action.payload;
+    },
   },
 });
 
@@ -78,6 +82,7 @@ export const {
   continuarConfirmacao,
   setDeliveryData,
   setPaymentData,
+  setOrderId,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
