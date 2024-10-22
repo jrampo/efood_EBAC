@@ -5,6 +5,7 @@ import {
   voltarParaEntrega,
   close,
   continuarConfirmacao,
+  setPaymentData,
 } from "../../../store/reducers/cart";
 
 import {
@@ -18,10 +19,17 @@ import {
   Buttons,
   Buttons2,
 } from "./styles";
+import { usePurchaseMutation } from "../../../services/api";
 
 const Pagamento = () => {
   const dispatch = useDispatch();
-  const { pagamentoAtivo, items } = useSelector((state) => state.cart);
+  const { pagamentoAtivo, deliveryData, items } = useSelector(
+    (state) => state.cart
+  );
+
+  const [purchase] = usePurchaseMutation();
+
+  //
 
   const formatarPreco = (valor) => {
     return new Intl.NumberFormat("pt-BR", {
@@ -63,7 +71,28 @@ const Pagamento = () => {
         .required("O campo é obrigatório"),
     }),
     onSubmit: (values) => {
+      const paymentData = {
+        card: {
+          name: values.cartaoNome,
+          number: values.cartaoNumero,
+          code: values.cvv,
+          expires: {
+            month: values.mes,
+            year: values.ano,
+          },
+        },
+      };
+      dispatch(setPaymentData(paymentData));
+
+      if (deliveryData) {
+        purchase({
+          products: items.map((item) => ({ id: item.id, price: item.preco })),
+          delivery: deliveryData,
+          payment: paymentData,
+        });
+      }
       console.log(values);
+      dispatch(continuarConfirmacao());
     },
   });
 

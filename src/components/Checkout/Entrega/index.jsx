@@ -13,6 +13,7 @@ import {
   voltarCarrinho,
   continuarPagamento,
   close,
+  setDeliveryData,
 } from "../../../store/reducers/cart";
 
 import { useFormik } from "formik";
@@ -63,8 +64,19 @@ const Entrega = () => {
       complemento: Yup.string(),
     }),
     onSubmit: (values) => {
+      dispatch(
+        setDeliveryData({
+          reciever: values.destino,
+          address: {
+            description: values.endereco,
+            city: values.cidade,
+            zipCode: values.cep,
+            number: values.numero,
+            complement: values.complemento,
+          },
+        })
+      );
       console.log(values);
-
       handleContinuarPagamento();
     },
   });

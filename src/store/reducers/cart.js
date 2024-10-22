@@ -6,6 +6,8 @@ const initialState = {
   entregaAtiva: false,
   pagamentoAtivo: false,
   confirmacaoAtivo: false,
+  deliveryData: null,
+  paymentData: null,
 };
 
 const cartSlice = createSlice({
@@ -55,6 +57,12 @@ const cartSlice = createSlice({
       state.pagamentoAtivo = false;
       state.confirmacaoAtivo = true;
     },
+    setDeliveryData: (state, action) => {
+      state.deliveryData = action.payload;
+    },
+    setPaymentData: (state, action) => {
+      state.paymentData = action.payload;
+    },
   },
 });
 
@@ -68,6 +76,8 @@ export const {
   voltarCarrinho,
   continuarPagamento,
   continuarConfirmacao,
+  setDeliveryData,
+  setPaymentData,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
